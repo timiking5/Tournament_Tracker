@@ -1,0 +1,87 @@
+﻿<UserControl DataContext="{Binding RelativeSource={RelativeSource Self}}"
+            x:Class="TrackerUIFixed.CreateTournamentUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TrackerUIFixed"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900"
+             FontFamily="Segeo UI">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="420"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="headerLabel" Content="Create Tournament" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="40" Foreground="#3399ff"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label x:Name="tournamentNameLabel" Content="Tournament Name" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="34" Foreground="#3399ff"/>
+                <TextBox x:Name="tournamentNameTextBox" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="340" FontSize="34"/>
+                <Label x:Name="entryFeeLabel" Content="Entry Fee" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Foreground="#3399ff" FontSize="34"/>
+                <TextBox x:Name="entryFeeTextBox" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="190" FontSize="34" Margin="160,0,0,0"/>
+                <Label x:Name="selectTeamLabel" Content="Select Team" HorizontalAlignment="Left"  Grid.Row="3" VerticalAlignment="Center" Foreground="#3399ff" FontSize="34"/>
+                <Label x:Name="createNewLabel" Grid.Row="3" FontSize="28" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Hyperlink x:Name="createTeamHyperLink" Click="createTeamHyperLink_Click">
+                        Create New
+                    </Hyperlink>
+                </Label>
+                <ComboBox x:Name="selectTeamComboBox" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="340" FontSize="34"
+                          ItemsSource="{Binding availableTeams}"
+                          DisplayMemberPath="TeamName"/>
+                <Button x:Name="addTeamButton" Content="Add Team" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Foreground="#3399ff" FontSize="28" Background="White" Height="50" Width="180" Click="addTeamButton_Click"/>
+                <Button x:Name="createPrizeButton" Content="Create Prize" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Foreground="#3399ff" FontSize="28" Background="White" Height="50" Width="180" Click="createPrizeButton_Click"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"></RowDefinition>
+                    <RowDefinition Height="2.5*"></RowDefinition>
+                    <RowDefinition Height="0.8*"></RowDefinition>
+                    <RowDefinition Height="2.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label x:Name="playerLabel" Content="Teams/Players" HorizontalAlignment="Left"  VerticalAlignment="Center" Foreground="#3399ff" FontSize="34"/>
+                <Label x:Name="prizeLabel" Content="Prizes" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Foreground="#3399ff" FontSize="34"/>
+                <ListBox x:Name="selectedTeamsListBox" Grid.Row="1" Margin="10,5,24,10" Background="White"
+                         ItemsSource="{Binding selectedTeams}"
+                         DisplayMemberPath="TeamName"/>
+                <ListBox x:Name="prizesListBox" Grid.Row="3" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,24,10"
+                         ItemsSource="{Binding selectedPrizes}"
+                         DisplayMemberPath="PlaceName"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.8*"></RowDefinition>
+                    <RowDefinition Height="2.5*"></RowDefinition>
+                    <RowDefinition Height="0.8*"></RowDefinition>
+                    <RowDefinition Height="2.5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button x:Name="removeSelectedPlayerButton" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Center" Background="White" Foreground="#3399ff" FontSize="28" Width="150" Click="removeSelectedPlayerButton_Click">
+                    <TextBlock x:Name="deleteSelectedPlayerTextBox" Width="142" TextAlignment="Center">Remove<LineBreak/>Selected</TextBlock>
+                </Button>
+
+                <Button x:Name="removeSelectedPrizeButton" HorizontalAlignment="Left"  Grid.Row="3" VerticalAlignment="Center" Background="White" Foreground="#3399ff" FontSize="28" Width="150" Click="removeSelectedPrizeButton_Click">
+                    <TextBlock x:Name="deleteSelectedPrizeTextBox" Width="142" TextAlignment="Center">Remove<LineBreak/>Selected</TextBlock>
+                </Button>
+
+            </Grid>
+        </Grid>
+        <Button x:Name="createTournamentButton" Content="Create Tournament" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" FontSize="28" 
+                Background="White" Foreground="#3399ff" Height="60" Width="262" Margin="260,10,0,0" Click="createTournamentButton_Click"/>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AppIcon.png" />
+    <None Remove="Resources\AppIcon.png" />
+    <None Remove="Resources\CreateTeam.jpg" />
+    <None Remove="Resources\CreateTeam.png" />
+    <None Remove="Resources\DashBoard.png" />
+    <None Remove="Resources\DashBoardPic.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TrackerLibrary\TrackerLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="AppIcon.png" />
+    <Resource Include="Resources\AppIcon.png" />
+    <Resource Include="Resources\CreateTeam.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\DashBoardPic.png" />
+  </ItemGroup>
+
+</Project>

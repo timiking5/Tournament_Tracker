@@ -1,0 +1,72 @@
+﻿<UserControl DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TrackerUIFixed"
+             xmlns:Policy="clr-namespace:System.Security.Policy;assembly=System.Security.AccessControl" x:Class="TrackerUIFixed.CreateTeamUserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="386*"/>
+            <ColumnDefinition Width="375*"/>
+            <ColumnDefinition Width="139*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="77*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="70*"/>
+                <RowDefinition Height="324*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="headerLabel" Content="Create Team" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" FontSize="34" Foreground="#3399ff"/>
+            <Label x:Name="teamNameLabel" Content="Team Name" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Foreground="#3399ff" Height="34" Width="200" Grid.Row="1" Grid.Column="0"/>
+            <TextBox x:Name="TeamNameTextbox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="337" FontSize="20" Foreground="#3399ff"  Grid.Row="1" Height="30" Margin="0,34,0,0"/>
+            <Label x:Name="selectMemberLabel" Content="Select Team Member" HorizontalAlignment="Left" Grid.Column="0" VerticalAlignment="Top" FontSize="20" Foreground="#3399ff" Height="34" Width="273" Grid.Row="2"/>
+            <ComboBox x:Name="selectteamMemberComboBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="336" Background="White" FontSize="20" Grid.Row="2" Height="34" Margin="0,34,0,0"
+                      ItemsSource="{Binding availableTeamMembers}"
+                      DisplayMemberPath="FullName"/>
+            <Button x:Name="addMemberButton" Content="Add Member" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="#3399ff" Height="49" Width="150" Grid.Row="3" Click="addMemberButton_Click"/>
+            <GroupBox x:Name="addNewMemberGroupBox" Header="Add New Member" FontSize="20" Grid.Row="4" Height="250">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="8"/>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition Height="36"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.65*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="firstNameLabel" Content="First Name" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Foreground="#3399ff" Height="37" Width="116" Grid.Row="1"/>
+                    <TextBox x:Name="firstNameTextbox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="158" FontSize="20" Foreground="#3399ff" Grid.Row="1" Grid.Column="1"/>
+                    <Label x:Name="lastNameLabel" Content="Last Name" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Foreground="#3399ff" Height="37" Width="116" Grid.Row="2"/>
+                    <TextBox x:Name="lastNameTextbox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="158" FontSize="20" Foreground="#3399ff" Grid.Row="2" Grid.Column="1"/>
+                    <Label x:Name="emailLabel" Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Foreground="#3399ff" Height="37" Width="116" Grid.Row="3"/>
+                    <TextBox x:Name="emailTextbox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="158" FontSize="20" Foreground="#3399ff" Grid.Row="3" Grid.Column="1"/>
+                    <Label x:Name="cellphoneNumberLabel" Content="Cellphone" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Foreground="#3399ff" Height="37" Width="116" Grid.Row="4"/>
+                    <TextBox x:Name="cellphoneNumberTextbox" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="158" FontSize="20" Foreground="#3399ff" Grid.Row="4" Grid.Column="1"/>
+                    <Canvas Grid.Row="5"/>
+                    <Button x:Name="createMemberButton" Content="Create Member" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Background="White" Foreground="#3399ff" Height="48" Width="150" ClipToBounds="False" Grid.ColumnSpan="2" Margin="147,6,0,0" Grid.Row="5" Click="createMemberButton_Click"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="253*"/>
+                <RowDefinition Height="47*"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="createTeamButton" Content="Create Team" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="28" Background="White" Foreground="#3399ff" Height="54" Width="210" Grid.Row="1" Click="createTeamButton_Click"/>
+            <ListBox x:Name="teamMembersListBox" Background="White" Foreground="#3399ff" Margin="21,0,21,0" Grid.Row="0" VerticalAlignment="Center" Height="410" ItemsSource="{Binding selectedteamMembers}" DisplayMemberPath="FullName"/>
+        </Grid>
+        <Button x:Name="removeSelectedButton" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="#3399ff" Height="58" Width="88" Grid.Column="2" Click="removeSelectedButton_Click">
+            <TextBlock x:Name="inButtonTextBlock" Width="79" TextAlignment="Center"><Run Text="Remove"/><LineBreak/><Run Text="Selected"/></TextBlock>
+        </Button>
+    </Grid>
+</UserControl>

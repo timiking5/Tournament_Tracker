@@ -1,0 +1,59 @@
+﻿<Window x:Class="TrackerUIFixed.CreatePrizeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrackerUIFixed"
+        mc:Ignorable="d"
+        Icon="C:\Users\User\Desktop\Папа\SortOfProject\TournamentTracker\TrackerUIFixed\Resources\Prize.png"
+        Title="Create Prize" Height="450" Width="450"
+        FontFamily="Segeo UI">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label x:Name="headerLabel" Content="Create Prize" FontSize="34" VerticalAlignment="Center" Foreground="#3399ff"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="placeNumberLabel" Content="Place Number" FontSize="28" VerticalAlignment="Center" Foreground="#3399ff"/>
+            <TextBox x:Name="placeNumberTextBox" Grid.Column="1" FontSize="28" Height="45" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="placeNameLabel" Content="Place Name" FontSize="28" VerticalAlignment="Center" Foreground="#3399ff"/>
+            <TextBox x:Name="placeNameTextBox" Grid.Column="1" FontSize="28" Height="45" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="prizeAmountLabel" Content="Prize Amount" FontSize="28" VerticalAlignment="Center" Foreground="#3399ff"/>
+            <TextBox x:Name="prizeAmountTextBox" Text="0" Grid.Column="1" FontSize="28" Height="45" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="prizePercentageLabel" Content="Prize Percentage" FontSize="28" VerticalAlignment="Center" Foreground="#3399ff"/>
+            <TextBox x:Name="prizePercentageTextBox" Text="0" Grid.Column="1" FontSize="28" Height="45" VerticalAlignment="Center"/>
+        </Grid>
+        <Label x:Name="orLabel" Grid.Row="4" FontSize="34" Foreground="#3399ff" Content="-or-"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="createPrizeButton" Content="Create Prize" Foreground="#3399ff" Background="White"
+                FontSize="34" Grid.Row="6" Width="250" Height="60" Click="createPrizeButton_Click"/>
+    </Grid>
+</Window>
